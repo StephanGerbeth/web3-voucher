@@ -1,0 +1,51 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --https --ssl-cert /Users/stephan.gerbeth/.office-addin-dev-certs/localhost.crt --ssl-key /Users/stephan.gerbeth/.office-addin-dev-certs/localhost.key",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "@vue/eslint-config-standard": "^8.0.1",
+    "eslint": "8.31.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "nuxt": "3.0.0",
+    "postcss-css-variables": "^0.18.0",
+    "vite-plugin-node-stdlib-browser": "^0.1.1"
+  },
+  "dependencies": {
+    "@mdi/js": "^7.1.96",
+    "@scure/bip39": "^1.1.0",
+    "@undecaf/barcode-detector-polyfill": "^0.9.14",
+    "buffer": "^6.0.3",
+    "cssnano": "^5.1.14",
+    "dotenv": "^16.0.3",
+    "formidable": "^3.2.5",
+    "h3-formidable": "^0.2.2",
+    "ipfs": "^0.65.0",
+    "key-did-provider-ed25519": "^2.0.1",
+    "key-did-resolver": "^2.3.0",
+    "node-stdlib-browser": "^1.2.0",
+    "orbit-db": "^0.28.7",
+    "postcss-nested": "^6.0.0",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^7.8.3",
+    "randomcolor": "^0.6.2",
+    "rxjs": "^7.8.0",
+    "seedrandom": "^3.0.5",
+    "ufo": "^1.0.1",
+    "unique-names-generator": "^4.7.1",
+    "vite-plugin-vuetify": "^1.0.1",
+    "vue3-async-computed": "^3.0.0",
+    "vuetify": "^3.1.0",
+    "w3name": "^1.0.7",
+    "web3.storage": "^4.4.0"
+  }
+}

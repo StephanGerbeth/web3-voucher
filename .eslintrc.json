@@ -1,0 +1,76 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "parser": "@typescript-eslint/parser"
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:nuxt/recommended",
+    "plugin:vue/vue3-recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "unused-imports"
+  ],
+  "globals": {
+    "useRuntimeConfig": "readonly",
+    "defineNitroPlugin": "readonly",
+    "defineNuxtConfig": "readonly",
+    "defineNuxtPlugin": "readonly",
+    "defineEventHandler": "readonly",
+    "getQuery": "readonly",
+    "readBody": "readonly"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 1
+      }
+    ],
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        "ignores": [
+          "default",
+          "index",
+          "dashboard"
+        ]
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "always"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "no-undef": "error",
+    "unused-imports/no-unused-imports": "error",
+    "no-multi-spaces": "error"
+  }
+}
