@@ -6,6 +6,7 @@
           :image="image"
           :color="color"
         />
+        <slot name="reset"></slot>
       </v-container>
     </v-responsive>
     <v-card-item>

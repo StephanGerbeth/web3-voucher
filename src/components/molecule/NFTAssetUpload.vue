@@ -1,9 +1,13 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <FileUpload
+    <v-file-input
       v-model="files"
+      label="File input"
+      accept="image/png, image/jpeg"
       multiple
+      :prepend-icon="$vuetify.icons.aliases.camera"
     />
+
     <v-btn type="submit">
       Upload
     </v-btn>
@@ -12,7 +16,7 @@
 
 <script>
 import FileUpload from '@/components/atom/FileUpload.vue';
-import { fetchRequest } from '~~/src/observables/tools/fetch';
+import { fetchRequest } from '@/observables/tools/fetch';
 
 export default {
   components: {

@@ -1,7 +1,14 @@
 <template>
-  <div>hello</div>
+  <NuxtPage />
 </template>
 
 <script>
-export default {};
+export default {
+  setup() {
+    definePageMeta({
+      auth: true,
+      layout: 'admin'
+    });
+  }
+};
 </script>

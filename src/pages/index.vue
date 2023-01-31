@@ -9,25 +9,36 @@
       v-model="client"
     />
     <WalletLoader v-else />
-    <NFTAssetUpload />
   </ClientOnly>
 </template>
 
 <script>
 import WalletGenerator from '@/components/molecule/WalletGenerator.vue';
 import WalletLoader from '@/components/molecule/WalletLoader.vue';
-import NFTAssetUpload from '@/components/molecule/NFTAssetUpload.vue';
+
 // import { publishIPNSEntry, updateIPNSEntry, resolveIPNSEntry } from '~~/src/server/service/ipns';
 
 export default {
   components: {
     WalletGenerator,
-    WalletLoader,
-    NFTAssetUpload
+    WalletLoader
   },
 
-  setup() {
+  async setup() {
+    definePageMeta({ auth: false });
+    // const { data, status, getCsrfToken, getProviders } = useSession();
+
+    // const providers = await getProviders();
+    // const csrfToken = await getCsrfToken();
     console.log('SETUP PAGE INDEX');
+    onBeforeRouteUpdate((to, from) => {
+      console.log(to, from);
+      const answer = window.confirm(
+        'Do you really want to leave? you have unsaved changes!'
+      );
+      // cancel the navigation and stay on the same page
+      if (!answer) return false;
+    });
   },
 
   data() {
@@ -38,6 +49,7 @@ export default {
   },
 
   async mounted() {
+
     // const created = await publishIPNSEntry('/ipfs/bafkreiem4twkqzsq2aj4shbycd4yvoj2cx72vezicletlhi7dijjciqpui');
     // console.log('1', created, created.name.toString());
 

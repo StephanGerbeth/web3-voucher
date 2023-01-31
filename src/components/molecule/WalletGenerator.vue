@@ -4,16 +4,19 @@
     @submit.prevent="register"
   >
     <Suspense :key="Date.now()">
-      <UserProfile :user="user" />
+      <UserProfile :user="user">
+        <template #reset>
+          <v-btn
+            :icon="$vuetify.icons.aliases.renew"
+            type="reset"
+          />
+        </template>
+      </UserProfile>
       <template #fallback>
         <LoadingSpinner />
       </template>
     </Suspense>
 
-    <v-btn
-      :icon="$vuetify.icons.aliases.renew"
-      type="reset"
-    />
     <v-btn
       :icon="$vuetify.icons.aliases.check"
       type="submit"
@@ -25,7 +28,6 @@
 import { reactive } from 'vue';
 import Client, { createClient } from '@/classes/Client';
 import { createUser } from '@/classes/User';
-import * as webAuthn from '@/observables/webAuth';
 
 import UserProfile from '@/components/atom/UserProfile.vue';
 import LoadingSpinner from '@/components/atom/placeholder/LoadingSpinner.vue';
@@ -76,8 +78,7 @@ export default {
       const client = await createClient(this.credentials);
       try {
         console.log(client.user);
-        const { id } = await webAuthn.register(client.wallet.mnemonic, client.user.info.name, client.user.info.image);
-        this.$router.replace({ query: { ...this.$route.query, cred: id } }, () => { /* empty */ });
+        await this.$register(client);
       } catch(e) {
         console.log('REGISTER ERROR', e);
       }

@@ -1,6 +1,6 @@
 import { createVuetify } from 'vuetify';
 import { mdi } from 'vuetify/iconsets/mdi-svg';
-import { mdiAutorenew, mdiCheck } from '@mdi/js';
+import { mdiAutorenew, mdiCheck, mdiMultimedia, mdiCamera } from '@mdi/js';
 
 export default defineNuxtPlugin(nuxtApp => {
   const vuetify = createVuetify({
@@ -11,7 +11,9 @@ export default defineNuxtPlugin(nuxtApp => {
       defaultSet: 'mdi',
       aliases: {
         renew: mdiAutorenew,
-        check: mdiCheck
+        check: mdiCheck,
+        assets: mdiMultimedia,
+        camera: mdiCamera
       },
       sets: {
         mdi,

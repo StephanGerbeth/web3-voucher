@@ -23,9 +23,14 @@
     "defineNitroPlugin": "readonly",
     "defineNuxtConfig": "readonly",
     "defineNuxtPlugin": "readonly",
+    "defineNuxtModule": "readonly",
+    "definePageMeta": "readonly",
     "defineEventHandler": "readonly",
     "getQuery": "readonly",
-    "readBody": "readonly"
+    "readBody": "readonly",
+    "useSession": "readonly",
+    "useStorage": "readonly",
+    "onBeforeRouteUpdate": "readonly"
   },
   "rules": {
     "no-console": "off",
@@ -39,11 +44,7 @@
     "vue/multi-word-component-names": [
       "error",
       {
-        "ignores": [
-          "default",
-          "index",
-          "dashboard"
-        ]
+        "ignores": []
       }
     ],
     "quotes": [
@@ -72,5 +73,16 @@
     "no-undef": "error",
     "unused-imports/no-unused-imports": "error",
     "no-multi-spaces": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/pages/**/*.vue",
+        "src/layouts/*.vue"
+      ],
+      "rules": {
+        "vue/multi-word-component-names": "off"
+      }
+    }
+  ]
 }

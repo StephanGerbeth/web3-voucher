@@ -4,12 +4,19 @@ import nodePolyfills from 'vite-plugin-node-stdlib-browser';
 import vuetify from 'vite-plugin-vuetify';
 config();
 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 export default defineNuxtConfig({
   srcDir: 'src/',
 
   css: [
     'vuetify/lib/styles/main.css'
   ],
+  routeRules: {
+    // https://nuxt.com/docs/guide/concepts/rendering#route-rules
+    '/dashboard/**': { ssr: false },
+
+  },
 
   runtimeConfig: {
     web3: {
