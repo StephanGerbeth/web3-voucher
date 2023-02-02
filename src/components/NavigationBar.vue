@@ -19,6 +19,11 @@
       nav
     >
       <v-list-item
+        to="/dashboard"
+        :prepend-icon="$vuetify.icons.aliases.overview"
+        title="Overview"
+      />
+      <v-list-item
         to="/dashboard/assets"
         :prepend-icon="$vuetify.icons.aliases.assets"
         title="Assets"

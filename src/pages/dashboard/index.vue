@@ -1,3 +1,3 @@
 <template>
-  <div>DASHBOARD</div>
+  <div>Overview</div>
 </template>

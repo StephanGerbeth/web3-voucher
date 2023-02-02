@@ -3,19 +3,23 @@ import { startWith, map } from 'rxjs/operators';
 
 export const getCameraPermissionObservable = async () => {
   return requestPermission({ name: 'camera', userVisibleOnly: 'true' });
-}
+};
+
+export const getGeolocationPermissionObservable = async () => {
+  return requestPermission({ name: 'geolocation' });
+};
 
 const requestPermission = async (options) => {
   const permission = await navigator.permissions.query(options);
   return getObservable(permission).pipe(
-    map(({currentTarget}) => currentTarget),
+    map(({ currentTarget }) => currentTarget),
     startWith(permission)
   );
-}
+};
 
 const getObservable = (permission) => {
   return fromEventPattern(
     (handler) => permission.onchange = handler,
     () => permission.onchange = null
-  )
-}
+  );
+};

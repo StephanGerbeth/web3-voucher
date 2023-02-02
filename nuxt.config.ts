@@ -25,6 +25,11 @@ export default defineNuxtConfig({
       }
     },
     app: {
+      google: {
+        maps: {
+          key: process.env.GOOGLE_MAPS_KEY
+        }
+      },
       tatum: {
         net: 'testnet',
         chain: 'algorand',
@@ -49,18 +54,24 @@ export default defineNuxtConfig({
     optimizeDeps: {
       esbuildOptions: {
         target: 'es2020'
-      }
+      },
+      include: [
+        // 'vue-google-maps-community-fork',
+        'fast-deep-equal',
+      ],
     },
     plugins: [
       nodePolyfills()
-    ]
+    ],
   },
 
   build: {
     transpile: [
       'rxjs',
       // https://codybontecou.com/how-to-use-vuetify-with-nuxt-3.html
-      'vuetify'
+      'vuetify',
+      'vue-google-maps-community-fork',
+      '@googlemaps/markercluster'
     ],
   },
 
